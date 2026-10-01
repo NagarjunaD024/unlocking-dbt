@@ -2,34 +2,34 @@ my_first_dbt_project:
   target: dev
   outputs:
     dev:
-      account: YOUR_ACCOUNT_HERE
+      account: MQVLHJZ-GW27152
       database: dbt_learning
-      password: YOUR_PASSWORD_HERE
-      role: dbt_transformer
-      schema: YOUR_NAME_HERE
-      threads: 8
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: SYSADMIN
+      schema: nagarjuna
+      threads: 4
       type: snowflake
-      user: YOUR_USER_HERE
-      warehouse: dbt
+      user: NANDU897764
+      warehouse: COMPUTE_WH
 
     prod:
-      account: YOUR_ACCOUNT_HERE
+      account:  MQVLHJZ-GW27152
       database: analytics
-      password: YOUR_PASSWORD_HERE
-      role: dbt_transformer
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: SYSADMIN
       schema: public
-      threads: 8
+      threads: 4
       type: snowflake
-      user: YOUR_USER_HERE
-      warehouse: dbt
+      user: NANDU897764
+      warehouse: COMPUTE_WH,
 
     ci:
-      account: YOUR_ACCOUNT_HERE
+      account: MQVLHJZ-GW27152
       database: analytics_{{ env_var('DBT_PR_NUMBER')}}
       password: YOUR_PASSWORD_HERE
-      role: dbt_transformer
+      role: SYSADMIN
       schema: public
-      threads: 8
+      threads: 4
       type: snowflake
-      user: YOUR_USER_HERE
-      warehouse: dbt
+      user: NANDU897764
+      warehouse: COMPUTE_WH
